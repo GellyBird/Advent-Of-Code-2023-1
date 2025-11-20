@@ -13,6 +13,7 @@ public class Main {
 
         int partOneAnswer = 0;
         int partTwoAnswer = 0;
+
         for (int i = 0; i < lines.size(); i++) {
             partOneAnswer += getPartOneNumber(lines.get(i));
             partTwoAnswer += getPartTwoNumber(lines.get(i));
@@ -26,7 +27,28 @@ public class Main {
         // do part 1
         // find the first digit and last digit of the String
         // return the number put together
-        return 0;
+        int firstDigit = 0;
+        int finalDigit = 0;
+
+        for (int i = 0; i < line.length(); i ++) {
+            if (Character.isDigit(line.charAt(i))) {
+                String tempString = "";
+                tempString += line.charAt(i);
+                firstDigit = Integer.parseInt(tempString);
+                break;
+            }
+        }
+
+        for (int i = line.length() - 1; i >= 0; i --) {
+                if (Character.isDigit(line.charAt(i))) {
+                String tempString = "";
+                tempString += line.charAt(i);
+                finalDigit = Integer.parseInt(tempString);
+                break;
+            }  
+        }
+
+        return (finalDigit+firstDigit);
     }
 
     public static int getPartTwoNumber(String line) {
